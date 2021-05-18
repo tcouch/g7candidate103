@@ -10,6 +10,12 @@ vector of integers.
 """
 
 
-def sum_ints(intone, inttwo):
-    return(intone + inttwo)
+def sum_ints(*args):
+    result = 0
+    for arg in args:
+        if isinstance(arg, list):
+            result += sum_ints(*arg)
+        else:
+            result += arg
+    return result
 
